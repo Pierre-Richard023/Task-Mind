@@ -59,6 +59,12 @@ Encore
         config.corejs = '3.38';
     })
 
+
+    .enablePostCssLoader()
+    .configureWatchOptions((watchOptions) => {
+        watchOptions.ignored = /public\/build\/.*/;
+    })
+
     // enables Sass/SCSS support
     //.enableSassLoader()
 
