@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Connexion | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    
+    <section class="mx-auto max-w-screen-xl bg-gray-50 my-4 ">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+            <div class="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-xl xl:p-0  ">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 class="text-xl text-center   font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                        Connexion
+                    </h1>
+
+
+                    <form class="space-y-4 md:space-y-6" method="post">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        <div>
+                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 ">
+                                Email <span class="text-danger">*</span> :
+                            </label>
+                            <input type="email" value="{{ last_username }}" name="_username" id="username"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5  "
+                                   placeholder="Email" required autofocus>
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">
+                                Mot de passe <span class="text-danger">*</span> :
+                            </label>
+                            <input type="password" name="_password" id="password" placeholder="Mot de passe "
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 "
+                                   required="">
+                        </div>
+                        <input type="hidden" name="_csrf_token" data-controller="csrf-protection"
+                               value="{{ csrf_token('authenticate') }}">
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="remember" aria-describedby="remember" type="checkbox" name="_remember_me"
+                                           class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-secondary "
+                                    />
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="remember" class="text-gray-500 ">Se souvenir de moi</label>
+                                </div>
+                            </div>
+                            <a href="{{ path('forgot.password.request') }}"
+                               class="text-sm font-medium text-secondary hover:underline ">
+                                Vous avez oublié votre mot de passe ?
+                            </a>
+                        </div>
+
+                        <button type="submit"
+                                class="w-full text-white bg-secondary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-5 py-2.5 text-center   ">
+
+                            Se connecter
+                        </button>
+
+                        <p class="text-sm font-light text-gray-500 ">
+                            Vous n’avez pas encore de compte ?
+
+                            <a href="{{ path('register') }}" class="font-medium text-secondary hover:underline ">
+                                S'inscrire
+                            </a>
+                        </p>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+{% endblock %}

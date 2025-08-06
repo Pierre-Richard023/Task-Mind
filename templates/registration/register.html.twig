@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+   {{ parent() }} | S'inscrire
+{% endblock %}
+
+{% block body %}
+    {#    {% for flash_error in app.flashes('verify_email_error') %} #}
+    {#        <div class="alert alert-danger" role="alert">{{ flash_error }}</div> #}
+    {#    {% endfor %} #}
+
+    {#    <h1>Register</h1> #}
+
+    {#    {{ form_errors(registrationForm) }} #}
+
+    {#    {{ form_start(registrationForm) }} #}
+    {#        {{ form_row(registrationForm.email) }} #}
+    {#        {{ form_row(registrationForm.plainPassword, { #}
+    {#            label: 'Password' #}
+    {#        }) }} #}
+    {#        {{ form_row(registrationForm.agreeTerms) }} #}
+
+    {#        <button type="submit" class="btn">Register</button> #}
+    {#    {{ form_end(registrationForm) }} #}
+
+
+    <section class="mx-auto max-w-screen-xl bg-gray-50 my-4 ">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+            <div class="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-xl xl:p-0  ">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 class="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                        S'inscrire
+                    </h1>
+
+
+                    {{ form_start(registrationForm , {  'attr':{ class:'space-y-4 md:space-y-6' }} ) }}
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                        <div>
+                            {{ form_label(registrationForm.firstname) }}
+                            {{ form_widget(registrationForm.firstname) }}
+                        </div>
+                        <div>
+                            {{ form_label(registrationForm.lastname) }}
+                            {{ form_widget(registrationForm.lastname) }}
+                        </div>
+                    </div>
+                    <div>
+                        {{ form_label(registrationForm.email) }}
+                        {{ form_widget(registrationForm.email) }}
+                    </div>
+                    <div>
+                        {{ form_label(registrationForm.plainPassword) }}
+                        {{ form_widget(registrationForm.plainPassword) }}
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            {{ form_widget(registrationForm.agreeTerms) }}
+                        </div>
+                        <div class="ml-3 text-sm">
+                            {{ form_label(registrationForm.agreeTerms) }}
+                        </div>
+                    </div>
+                    <button type="submit"
+                            class="w-full text-white bg-secondary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        S'incrire
+                    </button>
+                    <p class="text-sm font-light text-gray-500 ">
+                        Vous avez déjà un compte ?
+                        <a href="{{ path('login') }}" class="font-medium text-secondary hover:underline ">
+                            Connectez-vous ici
+                        </a>
+                        .
+                    </p>
+                    {{ form_end(registrationForm) }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

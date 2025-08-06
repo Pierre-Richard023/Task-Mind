@@ -1,0 +1,16 @@
+@theme
+{
+    --color-primary: #5B2434;
+    --color-primary-light: #7A3E51;
+    --color-primary-dark: #451B29;
+    --color-secondary: #D1920D;
+    --color-secondary-light: #E0AB3F;
+    --color-secondary-dark: #A86E0A;
+    --color-danger: #E11D48;
+    --color-danger-light: #E7476D;
+    --color-danger-dark: #B0193A;
+    --color-success: #059669;
+    --color-success-light: #33B187;
+    --color-success-dark: #047753;
+
+}
